@@ -1,0 +1,4 @@
+white: #ffffff
+dark-grey: #222222
+light-grey: #777777
+green: #81e2af

@@ -7,15 +7,17 @@ const input = document.querySelector('.input');
 const discography = document.querySelector('#discography');
 
 
-// button click for search artists initiates API fetch
+// button click for search artists -- clears content and initiates API fetch's
 search.addEventListener('click', () => {
         bandName = input.value;
         discography.innerHTML = ''
+        bioDiv.innerHTML = '';
         discography.textContent = 'Discography';
         getDiscogs();
+        getLast();
 })
 
-// get album cover images and titles from API
+// get album cover images and titles from Discogs API
 let discImage = [];
 let discImageEl = [];
 let discTitle = [];
@@ -44,6 +46,25 @@ function getDiscogs() {
         })
 }
 
+// function to call the lastFM API to get bio
+const lastKey = 'f54a71e4cffac64ddae0c640e1c20b04'
+const lastSecret = '1a1cfb229ad5b54371350b86f7a4c32a'
+const queryLast = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json'
+const bioDiv = document.querySelector('#bio');
+
+function getLast() {
+    fetch('http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            const bio = data.artist.bio.content;
+            const bioEl = document.createElement('p');
+            bioEl.textContent = bio;
+            bioDiv.appendChild(bioEl);
+        })
+}
 
 // variables and open/close functions for modal
 const discModal = document.querySelector('#disc-modal');

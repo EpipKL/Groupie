@@ -1,3 +1,19 @@
 body{
     background-color: black;
 }
+
+/* discography modal styling */
+#discography {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-size: 40px;
+    color: white;
+}
+
+#discography > * {
+    font-size: 20px;
+    width: 40%;
+}

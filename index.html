@@ -29,27 +29,40 @@
     </section>
     <!--Hero section end -->
 <!--Search bar -->
-<section class="section has-background-success level-item has-text-centered">
-  <h2 class="subtitle">
-    <div class="field has-addons ">
-      <div class="control">
-        <input class="input" type="text" placeholder="Find an Artist">
-      </div>
-      <div class="control">
-        <a class="button is-info has-text-success has-background-grey">
-          Search
-        </a>
-      </div>
-    </div>
-  </h2>
-</section>
+    <section class="section has-background-success level-item has-text-centered">
+      <h2 class="subtitle">
+        <div class="field has-addons ">
+          <div class="control">
+            <input class="input" type="text" placeholder="Find an Artist">
+          </div>
+          <div class="control">
+            <a id="search" class="button is-info has-text-success has-background-grey">
+              Search
+            </a>
+          </div>
+        </div>
+      </h2>
+    </section>
 <!--Place Holder for info pulled from API-->
-<section class="section ">
-  <h1 class="title">Place Holder </h1>
-  <h2 class="subtitle">
-    API info to be displayed here to be seen by viewer
-  </h2>
-</section>
+    <section class="section ">
+      <h1 class="title">Place Holder </h1>
+      <h2 class="subtitle">
+        API info to be displayed here to be seen by viewer
+      </h2>
+      <!-- Discography modal -->
+      <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
+        Discography
+      </button>
+
+      <div id="disc-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <h2 id="discography">Discography</h2>
+        </div>
+        <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
+      </div>
+    </section>
+
   <script src="./assets/script.js"></script>
   </body>
 </html>

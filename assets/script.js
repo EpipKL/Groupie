@@ -49,11 +49,11 @@ function getDiscogs() {
 // function to call the lastFM API to get bio
 const lastKey = 'f54a71e4cffac64ddae0c640e1c20b04'
 const lastSecret = '1a1cfb229ad5b54371350b86f7a4c32a'
-const queryLast = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json'
+const queryLast = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json'
 const bioDiv = document.querySelector('#bio');
 
 function getLast() {
-    fetch('http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json')
+    fetch('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json')
         .then(function(response) {
             return response.json();
         })

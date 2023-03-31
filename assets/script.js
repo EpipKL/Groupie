@@ -95,6 +95,7 @@ function getTicket() {
                 tourEl[i] = document.createElement('button');
                 tourEl[i].classList.add('button');
                 tourEl[i].classList.add('is-success');
+                tourEl[i].setAttribute('id', 'tour-date');
                 tourEl[i].textContent = tourCity[i] + ', ' + tourState[i] + " | " + tourVenue[i] + " | " + tourDate[i];
                 tour.appendChild(tourEl[i]);
             }

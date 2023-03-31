@@ -2,6 +2,10 @@ body{
     background-color: black;
 }
 
+#tour-date {
+    margin: 10px;
+}
+
 /* discography modal styling */
 #discography {
     display: flex;

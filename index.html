@@ -14,31 +14,45 @@
 
   <body class="has-background-grey"> 
     
-    <!-- navbar brand, navbar menu... -->
-    
-    <!--Hero section This is just a place holder-->
-<!--Search bar -->
-<section class="hero is-light is-halfheight ">
-  <div class="navbar-end">
-      <button class="button is-success" id ="favBtn">Favorite</button>
+    <!-- Fixed favorite button -->
+    <div class="navbar-end">
+      <button class="button is-medium is-success m-2 is-rounded fixed" id ="favBtn">Favorites</button>
     </div>
-<div class="hero-body level-item has-text-centered">
-  <div class="">
-      <div class="field has-addons p-4">
-          <div class="control">
-            <input class="input is-rounded" type="text" placeholder="Find an Artist">
-          </div>
-          <div class="control">
-            <a id="search" class="button is-info has-text-success has-background-grey is-rounded">
-              <i class="fa-solid fa-magnifying-glass fa-beat"></i>
-            </a>
+
+  <!-- Landing Section -->
+  <section class="hero landing is-fullheight is-bold is-background is-clipped">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <!-- Logo -->
+          <img class="logo" src="assets/images/Groupie-white.png" alt="Logo">
+          <!-- Search Field -->
+          <div class="field has-addons is-justify-content-center p-4">
+            <p class="control">
+              <input class="input is-medium is-primary is-rounded" type="text" placeholder="Find an Artist">
+            </p>
+            <p class="control">
+              <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
+                  <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+              </button>
+            </p>
           </div>
         </div>
-  </div>
-</div>
-</section>
+      </div>
+      <!-- About and Contact buttons -->
+      <div class="buttons is-flex is-justify-content-space-around mb-5">
+          <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
+              About us
+          </button>
+          <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
+              Contact us
+          </button>
+        </div>
+
+  </section>
+  <!-- Ending of Landing Section -->
+
 <!--Place Holder for info pulled from API-->
-    <section class="section ">
+    <section class="section">
       <h1 class="title">Place Holder </h1>
       <h2 class="subtitle">
         API info to be displayed here to be seen by viewer

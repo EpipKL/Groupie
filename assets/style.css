@@ -1,9 +1,19 @@
 body{
     background-color: black;
+    font-family: 'Poppins';
+}
+
+.title {
+    font-size: 80px;
 }
 
 #tour-date {
     margin: 10px;
+}
+
+#photo {
+    height: 480px;
+    width: 480px;
 }
 
 /* discography modal styling */

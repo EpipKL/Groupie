@@ -44,6 +44,7 @@ input.addEventListener('keydown', function(event) {
 function getBandTitle() {
     const titleEl = document.createElement('h1');
     titleEl.textContent = bandName.toUpperCase();
+    titleEl.setAttribute('style', 'font-weight: 700;')
     title.appendChild(titleEl);
 }
 
@@ -147,6 +148,7 @@ function getBands() {
       let bandImgEl = document.createElement('img');
       bandImgEl.setAttribute('src', bandImg);
       photo.appendChild(bandImgEl);
+      bandImgEl.classList.add('is-rounded');
     })
 }
 

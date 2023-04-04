@@ -58,26 +58,32 @@
     <section class="section ">
       <h1 class="title">YOUR BAND HERE</h1>
       <!-- div for tour, photo , bio content (will format later)-->
-      <figure id="photo" class="image is-480x480">
-      </figure>
-      <span class="icon-text">
-        <span class="icon">
-          <i id="star" class="fa-regular fa-star"></i>
-        </span>
-        <span>Favorite</span>
-      </span>
-      <div id="tour"></div>
-      <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
-        Discography
-      </button>
-      <div id="bio" style="overflow: scroll; overflow-x: hidden; max-height: 200px;"></div>
-      <div id="disc-modal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <h2 id="discography">Discography</h2>
+      <div class="artist-content">
+        <div class="content-1">
+          <figure id="photo" class="image is-480x480">
+          </figure>
+          <span class="icon-text">
+            <span class="icon">
+              <i id="star" class="fa-regular fa-star"></i>
+            </span>
+            <span>Favorite</span>
+          </span>
         </div>
-        <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
-      </div>    
+        <div class="content-2">
+          <div id="tour"></div> 
+          <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
+            Discography
+          </button>
+          <div id="bio"></div>
+          <div id="disc-modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <h2 id="discography">Discography</h2>
+            </div>
+            <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
+          </div>   
+        </div>
+      </div>
       </section>
   <script src="https://kit.fontawesome.com/ab3504821e.js" crossorigin="anonymous"></script>
   <script src="./assets/script.js"></script>

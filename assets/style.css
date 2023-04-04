@@ -65,3 +65,34 @@ cursor: pointer;
     background-size: cover;
     background-position: center center;
 }
+
+.artist-content {
+    box-sizing: border-box;
+    display: inline-flex;
+}
+
+.content-1 {
+    display: block;
+    margin-right: 20px;
+}
+
+.content-2 {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#disc-modal-btn {
+    margin: 10px;
+}
+
+#bio {
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #333;
+    color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}

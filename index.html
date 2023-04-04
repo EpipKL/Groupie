@@ -13,13 +13,17 @@
 
   <body class="has-background-grey"> 
     
-    <!-- Fixed favorite button -->
-    <div class="navbar-end">
-      <button class="button is-medium is-success m-2 is-rounded fixed" id ="favBtn">Favorites</button>
+  <!-- Fixed favorite button -- dropdown (needs dropdown menu)-->
+    <div class="navbar-end dropdown is-active">
+      <button class="button is-medium is-success is-rounded fixed m-2 dropdown-trigger" aria-haspopup="true" aria-controls="dropdown-menu2">
+        <span>Favorites</span>
+        <span class="icon is-small">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </button>
     </div>
-    
   <!-- Landing Section -->
-  <section class="hero landing is-fullheight is-bold is-background is-clipped">
+    <section class="hero landing is-fullheight is-bold is-background is-clipped">
       <div class="hero-body">
         <div class="container has-text-centered">
           <!-- Logo -->
@@ -46,7 +50,7 @@
           <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
               Contact us
           </button>
-        </div>
+      </div>
   </section>
   <!-- Ending of Landing Section -->
 
@@ -66,11 +70,13 @@
       <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
         Discography
       </button>
-      <div id="bio"  style="overflow: scroll; overflow-x: hidden; max-height: 200px;">
+      <div id="bio" style="overflow: scroll; overflow-x: hidden; max-height: 200px;"></div>
       <div id="disc-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
           <h2 id="discography">Discography</h2>
+        </div>
+        <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
       </div>    
       </section>
   <script src="https://kit.fontawesome.com/ab3504821e.js" crossorigin="anonymous"></script>

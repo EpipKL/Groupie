@@ -13,47 +13,63 @@
   </head>
 
   <body class="has-background-grey"> 
-     
-<!--Hero section This is just a place holder-->
-    <section class="hero is-light is-halfheight ">
-      <div class="navbar-end">
-          <button class="button is-success" id ="favBtn">Favorite</button>
-        </div>
-    <div class="hero-body level-item has-text-centered">
-      <div class="">
-          <div class="field has-addons p-4">
-              <!--Search bar -->
-              <div class="control">
-                <input class="input is-rounded" type="text" placeholder="Find an Artist">
-              </div>
-              <div class="control">
-                <a id="search" class="button is-info has-text-success has-background-grey is-rounded">
-                  <i class="fa-solid fa-magnifying-glass fa-beat"></i>
-                </a>
-              </div>
-            </div>
-      </div>
+    
+    <!-- Fixed favorite button -->
+    <div class="navbar-end">
+      <button class="button is-medium is-success m-2 is-rounded fixed" id ="favBtn">Favorites</button>
     </div>
-    </section>
-<!--Place Holder for info pulled from API-->
-    <section class="section ">
-      <h1 class="title">YOUR BAND HERE</h1>
-      <!-- div for tour, photo , bio content (will format later)-->
-      <figure id="photo" class="image is-480x480">
-      </figure>
-      <div id="tour"></div>
-      <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
-        Discography
-      </button>
-      <div id="bio"></div>
-      <div id="disc-modal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <h2 id="discography">Discography</h2>
+
+  <!-- Landing Section -->
+  <section class="hero landing is-fullheight is-bold is-background is-clipped">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <!-- Logo -->
+          <img class="logo" src="assets/images/Groupie-white.png" alt="Logo">
+          <!-- Search Field -->
+          <div class="field has-addons is-justify-content-center p-4">
+            <p class="control">
+              <input class="input is-medium is-primary is-rounded" type="text" placeholder="Find an Artist">
+            </p>
+            <p class="control">
+              <button id="search" class="button is-medium is-info has-text-white has-background-grey is-rounded">
+                  <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+              </button>
+            </p>
+          </div>
         </div>
-        <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
       </div>
-    </section>
+      <!-- About and Contact buttons -->
+      <div class="buttons is-flex is-justify-content-space-around mb-5">
+          <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
+              About us
+          </button>
+          <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
+              Contact us
+          </button>
+        </div>
+
+  </section>
+  <!-- Ending of Landing Section -->
+
+<!--Place Holder for info pulled from API-->
+<section class="section ">
+  <h1 class="title">YOUR BAND HERE</h1>
+  <!-- div for tour, photo , bio content (will format later)-->
+  <figure id="photo" class="image is-480x480">
+  </figure>
+  <div id="tour"></div>
+  <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
+    Discography
+  </button>
+  <div id="bio"></div>
+  <div id="disc-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <h2 id="discography">Discography</h2>
+    </div>
+    <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
+  </div>
+</section>
 
   <script src="./assets/script.js"></script>
   </body>

@@ -31,3 +31,18 @@ body{
     font-size: 20px;
     width: 40%;
 }
+
+.fixed {
+    position: fixed;
+}
+
+.logo {
+    width: 50%;
+    height: 50%;
+}
+
+.landing {
+    background-image: url('./images/crowd-green.jpeg');
+    background-size: cover;
+    background-position: center center;
+}

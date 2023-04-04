@@ -7,6 +7,25 @@ body{
     font-size: 80px;
 }
 
+#star {
+transition: all;
+color: rgb(0, 231, 116);
+}
+
+.fa-solid {
+animation: fadeIn 1s;
+color: rgb(0, 231, 116);
+}
+
+@keyframes fadeIn {
+0% { opacity: 0.3; }
+100% { opacity: 1; }
+}
+
+#star:hover {
+cursor: pointer;
+}
+
 #tour-date {
     margin: 10px;
 }

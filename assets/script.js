@@ -147,17 +147,16 @@ discCloseBtn.addEventListener('click', () => {
     discModal.classList.remove('is-active');
 })  
 
-// SEAT GEEK API --- NOT THAT GREAT, SAVE FOR LATER
-// const seatId = 'MTE1Mjc5NzB8MTY4MDIyMzkzNy4wNDg4ODY1'
-// const seatSecret = '748b.......'
-// const querySeat = 'https://api.seatgeek.com/2/performers?q='+bandName+'client_id='+seatId;
+// functionality for favorites star
+const star = document.getElementById('star');
 
-// function getSeat() {
-//     fetch('https://api.seatgeek.com/2/performers?slug='+bandName+'&client_id='+seatId)
-//         .then(function(response) {
-//             return response.json();
-//         })
-//         .then(function(data) {
-//             console.log(data);
-//         })
-// }
+star.addEventListener('click', function() {
+    console.log('star-clicked')
+    if (star.classList.contains('fa-regular')) {
+        star.classList.remove('fa-regular')
+        star.classList.add('fa-solid')
+    }else {
+        star.classList.remove('fa-solid')
+        star.classList.add('fa-regular')
+  }
+})

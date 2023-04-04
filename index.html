@@ -51,28 +51,42 @@
   <!-- Ending of Landing Section -->
 
 <!--Place Holder for info pulled from API-->
-    <section class="section ">
+    <section class="section hero is-fullheight">
       <h1 class="title">YOUR BAND HERE</h1>
       <!-- div for tour, photo , bio content (will format later)-->
-      <figure id="photo" class="image is-480x480">
-      </figure>
       <span class="icon-text">
         <span class="icon">
           <i id="star" class="fa-regular fa-star"></i>
         </span>
         <span>Favorite</span>
       </span>
+      <figure id="photo" class="image is-rounded is-480x480">
+      </figure>
       <div id="tour"></div>
-      <button id="disc-modal-btn" class="js-modal-trigger button is-light" data-target="modal-js-example">
+    </article>
+    <!-- <div id="disc-modal" class="modal">
+      <div class="modal-background">
+        
+        <button id="disc-close" class="delete"></button>
+      </div>
+      <div class="modal-content">
+        <h2 id="discography">Discography</h2>
+      </div>
+    </div>     -->
+    <button id="disc-modal-btn" class="js-modal-trigger button is-light is-outlined is-rounded" data-target="modal-js-example">
+      Discography
+    </button>
+    <div id="bio"></div>
+    <article id="disc-modal" class="modal modal-background">
+      <div class=" modal-card-title">
         Discography
-      </button>
-      <div id="bio"></div>
-      <div id="disc-modal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <h2 id="discography">Discography</h2>
-      </div>    
-      </section>
+        <button id="disc-close" class="delete"></button>
+      </div>
+      <div class="modal-content">
+        <h2 id="discography"></h2>
+      </div>
+  </section>
+
   <script src="https://kit.fontawesome.com/ab3504821e.js" crossorigin="anonymous"></script>
   <script src="./assets/script.js"></script>
   </body>

@@ -126,19 +126,12 @@ function getTicket() {
                 tourEl[i].setAttribute('id', 'tour-date');
                 tourEl[i].textContent = tourCity[i] + ', ' + tourState[i] + " | " + tourVenue[i] + " | " + tourDate[i];
                 tour.appendChild(tourEl[i]);
-            }
+                tourEl[i].addEventListener('click', () => {
+                    localStorage.setItem(`favorite-event-${bandName + i}`, bandName + ' | ' + tourEl[i].textContent)
+                })
+            }    
         })
 }
-
-// function to save favorite events
-function eventSave(){
-    for (let i = 0; i < tourEl.length; i++) {
-        tourEl[i].addEventListener('click', () => {
-        localStorage.setItem(`gig-favorite${i}`, bandName + ' | ' + tourEl[i].textContent)
-    })
-  }
-}
-
 
 // function to get bandsintown API -- band images
 const bandsId = 'e1f5697f497a738baf58064c137d1e8b'
@@ -179,15 +172,15 @@ star.addEventListener('click', function() {
         star.classList.add('fa-solid');
         for (let i = 0; i < bandArr.length; i++) {
             if (bandName === bandArr[i]) {
-                localStorage.setItem(`fav-band-${bandArr[i]}`, bandArr[i]);    
+                localStorage.setItem(`favorite-band-${bandArr[i]}`, bandArr[i]);    
             }
         }      
     }else {
         star.classList.remove('fa-solid')
         star.classList.add('fa-regular')
         for (let i = 0; i < bandArr.length; i++) {
-            if (bandName === localStorage.getItem(`fav-band-${bandArr[i]}`)) {
-                localStorage.removeItem(`fav-band-${bandArr[i]}`);
+            if (bandName === localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
+                localStorage.removeItem(`favorite-band-${bandArr[i]}`);
             }
         }
   }
@@ -195,7 +188,7 @@ star.addEventListener('click', function() {
 
 function getStar() {
     for (let i = 0; i < bandArr.length; i++) {
-        if (localStorage.getItem(`fav-band-${bandArr[i]}`) === bandName) {
+        if (localStorage.getItem(`favorite-band-${bandArr[i]}`) === bandName) {
             star.className = 'fa-solid fa-star'
         }else {
             star.className = 'fa-regular fa-star'

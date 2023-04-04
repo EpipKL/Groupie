@@ -6,23 +6,33 @@ const search = document.querySelector('#search');
 const input = document.querySelector('.input');
 const discography = document.querySelector('#discography');
 const title = document.querySelector('.title');
+let bandArr = [];
+
 
 // button click for search artists -- clears content and initiates API fetch's
 search.addEventListener('click', () => {
         bandName = input.value;
-        title.innerHTML = '';
-        discography.innerHTML = ''
-        bioDiv.innerHTML = '';
-        tour.innerHTML = '';
-        photo.innerHTML = '';
-        discography.textContent = 'Discography';
+        bandArr.push(bandName);
+        clearFields();
+        getStar();
         getBandTitle();
         getDiscogs();
         getLast();
         getTicket();
         getBands();
+        eventSave();
 })
 
+// function for clearing fields between new searches
+function clearFields() {
+    title.innerHTML = '';
+    discography.innerHTML = ''
+    bioDiv.innerHTML = '';
+    tour.innerHTML = '';
+    photo.innerHTML = '';
+}
+
+// press "enter" to search
 input.addEventListener('keydown', function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
@@ -30,6 +40,7 @@ input.addEventListener('keydown', function(event) {
     }
 })
 
+// create title element for body searched
 function getBandTitle() {
     const titleEl = document.createElement('h1');
     titleEl.textContent = bandName.toUpperCase();
@@ -68,7 +79,6 @@ function getDiscogs() {
 // function to call the lastFM API to get bio
 const lastKey = 'f54a71e4cffac64ddae0c640e1c20b04'
 const lastSecret = '1a1cfb229ad5b54371350b86f7a4c32a'
-const queryLast = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json'
 const bioDiv = document.querySelector('#bio');
 
 function getLast() {
@@ -85,9 +95,10 @@ function getLast() {
         })
 }
 
+
+// variables and function to ticketmaster -- for events
 const ticketKey = 'UcycjsGfTYWd0RhGEctxiUWtpRjqQXm8'
 const ticketSecret = 'HWE3OUWKExknLpdY'
-let city = 'Denver';
 const photo = document.querySelector('#photo');
 const tour = document.querySelector('#tour');
 
@@ -119,6 +130,17 @@ function getTicket() {
         })
 }
 
+// function to save favorite events
+function eventSave(){
+    for (let i = 0; i < tourEl.length; i++) {
+        tourEl[i].addEventListener('click', () => {
+        localStorage.setItem(`gig-favorite${i}`, bandName + ' | ' + tourEl[i].textContent)
+    })
+  }
+}
+
+
+// function to get bandsintown API -- band images
 const bandsId = 'e1f5697f497a738baf58064c137d1e8b'
 
 function getBands() {
@@ -135,28 +157,48 @@ function getBands() {
     })
 }
 
-// variables and open/close functions for modal
+// variables and open/close functions for discography modal
 const discModal = document.querySelector('#disc-modal');
 const discBtn = document.querySelector('#disc-modal-btn');
 const discCloseBtn = document.querySelector('#disc-close');
 
 discBtn.addEventListener('click', () => {
     discModal.classList.add('is-active');
+    console.log('clicked');
 })   
 discCloseBtn.addEventListener('click', () => {
     discModal.classList.remove('is-active');
 })  
 
 // functionality for favorites star
-const star = document.getElementById('star');
+const star = document.querySelector("#star");
 
 star.addEventListener('click', function() {
-    console.log('star-clicked')
     if (star.classList.contains('fa-regular')) {
-        star.classList.remove('fa-regular')
-        star.classList.add('fa-solid')
+        star.classList.remove('fa-regular');
+        star.classList.add('fa-solid');
+        for (let i = 0; i < bandArr.length; i++) {
+            if (bandName === bandArr[i]) {
+                localStorage.setItem(`fav-band-${bandArr[i]}`, bandArr[i]);    
+            }
+        }      
     }else {
         star.classList.remove('fa-solid')
         star.classList.add('fa-regular')
+        for (let i = 0; i < bandArr.length; i++) {
+            if (bandName === localStorage.getItem(`fav-band-${bandArr[i]}`)) {
+                localStorage.removeItem(`fav-band-${bandArr[i]}`);
+            }
+        }
   }
 })
+
+function getStar() {
+    for (let i = 0; i < bandArr.length; i++) {
+        if (localStorage.getItem(`fav-band-${bandArr[i]}`) === bandName) {
+            star.className = 'fa-solid fa-star'
+        }else {
+            star.className = 'fa-regular fa-star'
+        }       
+    } 
+}

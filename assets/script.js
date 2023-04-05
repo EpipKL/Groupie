@@ -243,4 +243,3 @@ function getFavorite() {
     }
 }
 getFavorite();
-// localStorage.getItem(`favorite-band-${bandArr[i]}`)

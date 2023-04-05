@@ -1,7 +1,7 @@
 const apiKey = 'BuTjcTSMjIfxFGWSJNPo'
 const apiSecret = 'RHsXCGkbukoTWkHeCzBHZPspCYGEPPXG'
 let bandName;
-const queryDiscogs = 'https://api.discogs.com/database/search?artist='+bandName+'&type=release&key='+apiKey+'&secret='+apiSecret;
+const queryDiscogs = 'https://api.discogs.com/database/search?artist=' + bandName + '&type=release&key=' + apiKey + '&secret=' + apiSecret;
 const search = document.querySelector('#search');
 const input = document.querySelector('.input');
 const discography = document.querySelector('#discography');
@@ -11,16 +11,17 @@ let bandArr = [];
 
 // button click for search artists -- clears content and initiates API fetch's
 search.addEventListener('click', () => {
-        bandName = input.value;
-        bandArr.push(bandName);
-        clearFields();
-        getStar();
-        getBandTitle();
-        getDiscogs();
-        getLast();
-        getTicket();
-        getBands();
-        eventSave();
+    bandName = input.value.toUpperCase();
+    bandArr.push(bandName);
+    clearFields();
+    getStar();
+    getBandTitle();
+    getDiscogs();
+    getLast();
+    getTicket();
+    getBands();
+    window.scrollTo(0, 1000)
+    console.log(bandName)
 })
 
 // function for clearing fields between new searches
@@ -33,7 +34,7 @@ function clearFields() {
 }
 
 // press "enter" to search
-input.addEventListener('keydown', function(event) {
+input.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         search.click();
@@ -43,7 +44,7 @@ input.addEventListener('keydown', function(event) {
 // create title element for body searched
 function getBandTitle() {
     const titleEl = document.createElement('h1');
-    titleEl.textContent = bandName.toUpperCase();
+    titleEl.textContent = bandName;
     titleEl.setAttribute('style', 'font-weight: 700;')
     title.appendChild(titleEl);
 }
@@ -55,11 +56,11 @@ let discTitle = [];
 let discTitleEl = [];
 
 function getDiscogs() {
-    fetch('https://api.discogs.com/database/search?artist='+bandName+'&type=release&key='+apiKey+'&secret='+apiSecret)
-        .then(function(response) {
+    fetch('https://api.discogs.com/database/search?artist=' + bandName + '&type=release&key=' + apiKey + '&secret=' + apiSecret)
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data);
             for (let i = 0; i < data.results.length; i++) {
                 if (data.results[i].country === 'US') {
@@ -71,7 +72,7 @@ function getDiscogs() {
                     discTitleEl[i].textContent = discTitle[i];
                     discography.appendChild(discImageEl[i]);
                     discography.appendChild(discTitleEl[i]);
-                }else {
+                } else {
                 }
             }
         })
@@ -83,11 +84,11 @@ const lastSecret = '1a1cfb229ad5b54371350b86f7a4c32a'
 const bioDiv = document.querySelector('#bio');
 
 function getLast() {
-    fetch('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+bandName+'&api_key='+lastKey+'&format=json')
-        .then(function(response) {
+    fetch('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + bandName + '&api_key=' + lastKey + '&format=json')
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data);
             const bio = data.artist.bio.content;
             const bioEl = document.createElement('p');
@@ -110,11 +111,11 @@ let tourState = [];
 let tourEl = [];
 
 function getTicket() {
-    fetch('https://app.ticketmaster.com/discovery/v2/events.json?keyword='+bandName+'&countryCode=US&sort=date,asc&apikey='+ticketKey)
-        .then(function(response){
+    fetch('https://app.ticketmaster.com/discovery/v2/events.json?keyword=' + bandName + '&countryCode=US&sort=date,asc&apikey=' + ticketKey)
+        .then(function (response) {
             return response.json();
         })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data);
             for (let i = 0; i < 10; i++) {
                 tourDate[i] = data._embedded.events[i].dates.start.localDate;
@@ -130,7 +131,7 @@ function getTicket() {
                 tourEl[i].addEventListener('click', () => {
                     localStorage.setItem(`favorite-event-${bandName + i}`, bandName + ' | ' + tourEl[i].textContent)
                 })
-            }    
+            }
         })
 }
 
@@ -138,21 +139,21 @@ function getTicket() {
 const bandsId = 'e1f5697f497a738baf58064c137d1e8b'
 
 function getBands() {
-  fetch('https://rest.bandsintown.com/artists/'+bandName+'/?app_id='+bandsId)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      console.log(data);
-      let bandImg = data.image_url;
-      let bandImgEl = document.createElement('img');
-      bandImgEl.setAttribute('src', bandImg);
-      photo.appendChild(bandImgEl);
-      bandImgEl.classList.add('is-rounded');
-    })
+    fetch('https://rest.bandsintown.com/artists/' + bandName + '/?app_id=' + bandsId)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            let bandImg = data.image_url;
+            let bandImgEl = document.createElement('img');
+            bandImgEl.setAttribute('src', bandImg);
+            photo.appendChild(bandImgEl);
+            bandImgEl.classList.add('is-rounded');
+        })
 }
 
-// variables and open/close functions for discography modal -- also fav dropdown
+// variables and open/close functions for discography modal
 const discModal = document.querySelector('#disc-modal');
 const discBtn = document.querySelector('#disc-modal-btn');
 const discCloseBtn = document.querySelector('#disc-close');
@@ -160,10 +161,10 @@ const discCloseBtn = document.querySelector('#disc-close');
 discBtn.addEventListener('click', () => {
     discModal.classList.add('is-active');
     console.log('clicked');
-})   
+})
 discCloseBtn.addEventListener('click', () => {
     discModal.classList.remove('is-active');
-})  
+})
 
 
 
@@ -179,12 +180,12 @@ let favEvent = [];
 favDropBtn.addEventListener('click', () => {
     if (dropdown.classList.contains('is-active')) {
         dropdown.classList.remove('is-active');
-    }else {
+    } else {
         dropdown.classList.add('is-active');
     }
 })
 
-star.addEventListener('click', function() {
+star.addEventListener('click', function () {
     if (star.classList.contains('fa-regular')) {
         star.classList.remove('fa-regular');
         star.classList.add('fa-solid');
@@ -193,21 +194,27 @@ star.addEventListener('click', function() {
                 localStorage.setItem(`favorite-band-${bandArr[i]}`, bandArr[i]);
                 favBand[i] = document.createElement('a');
                 favBand[i].className = 'dropdown-item'
-                favBand[i].textContent = bandName.toLowerCase();
+                favBand[i].textContent = bandName;
                 favDrop.appendChild(favBand[i])
             }
-        }      
-    }else {
+        }
+    } else {
         star.classList.remove('fa-solid')
         star.classList.add('fa-regular')
         for (let i = 0; i < localStorage.length; i++) {
-            if (bandName === localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
-                localStorage.removeItem(`favorite-band-${bandArr[i]}`);
+            if (bandName === localStorage.getItem(localStorage.key(i))) {
+                localStorage.removeItem(localStorage.key(i));
+            } else if (localBandEl[i]) {
                 localBandEl[i].remove();
-                favBand[i].remove();
             }
         }
-  }
+        for (let i = 0; i < favBand.length; i++) {
+            if (favBand[i].textContent = bandArr[i]) {
+                favBand[i].remove();
+            }else {
+            }
+        }
+    }
 })
 
 function getStar() {
@@ -225,13 +232,15 @@ let localBandEl = [];
 
 function getFavorite() {
     for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i).substring(0,13) == 'favorite-band') {
+        if (localStorage.key(i).substring(0, 13) == 'favorite-band') {
             localBand[i] = localStorage.getItem(localStorage.key(i))
             localBandEl[i] = document.createElement('a');
             localBandEl[i].textContent = localBand[i]
             localBandEl[i].className = 'dropdown-item';
             favDrop.appendChild(localBandEl[i]);
-        }        
-    } 
+        } else {
+        }
+    }
 }
 getFavorite();
+// localStorage.getItem(`favorite-band-${bandArr[i]}`)

@@ -12,8 +12,9 @@ body{
 }
 
 #star {
-transition: all;
-color: rgb(0, 231, 116);
+    font-size: 30px;
+    transition: all;
+    color: rgb(0, 231, 116);
 }
 
 .fa-solid {

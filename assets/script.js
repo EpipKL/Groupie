@@ -213,9 +213,9 @@ star.addEventListener('click', function() {
 function getStar() {
     for (let i = 0; i < bandArr.length; i++) {
         if (localStorage.getItem(`favorite-band-${bandArr[i]}`) === bandName) {
-            star.className = 'fa-solid fa-star'
+            star.className = 'fa-solid fa-star fa-2xl'
         }else {
-            star.className = 'fa-regular fa-star'
+            star.className = 'fa-regular fa-star fa-2xl'
         }       
     } 
 }

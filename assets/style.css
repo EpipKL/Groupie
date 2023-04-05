@@ -66,6 +66,18 @@ cursor: pointer;
     background-position: center center;
 }
 
+.artist-title {
+    display: flex;
+}
+
+.icon-text {
+    position: relative;
+    top: 2px;
+    margin-left: 20px;
+    align-self: center;
+    font-size: 175%;
+}
+
 .artist-content {
     box-sizing: border-box;
     display: inline-flex;

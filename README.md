@@ -1,12 +1,21 @@
-# DU-Project-1  
+# Groupie ( DU-Project-1 ) 
 
 ## Description
 
-This website is a great way for music fans to keep up with their favorite artists.
+Groupie is a web app that is  a great way for music fans to keep up with their favorite artists.
 
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+Groupe gives the following information:
+- A picture of the Artist 
+- Artsit Bio
+- Discoogrpahy 
+- Upcoming tour dates
+
+Tools used to build Groupie
+- HTML
+- CSS
+- JavaScript 
+- Bulma (Css Library )
+- APIs ( Discogs and Bandsintown)
 
 ## User Story
 
@@ -16,18 +25,25 @@ SO that I know event and band information
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Below is are screenshots that show useage of how Groupie works Provide instructions and examples for use. Include screenshots as needed.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+
+
+   ![Screenshot of landing page.](./assets/images/Screenshot%202023-04-04%20192749.png)
+    ![Screenshot of Dead Mau5.](./assets/images/Screenshot%202023-04-04%20194038.png)
+     ![Screenshot of Kali Uchis.](./assets/images/Screenshot%202023-04-04%20194133.png)
+      ![Screenshot of George Strait.](./assets/images/Screenshot%202023-04-04%20194225.png)
 
 ## Credits
+
+Project collaborators:
+- Aaron Tanner
+- Kali Lott
+- Rosalinda Quezada
+- Daniel De Luna 
 
 List your collaborators, if any, with links to their GitHub profiles.
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-If you followed tutorials, include links to those here as well.

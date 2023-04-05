@@ -167,6 +167,10 @@ discCloseBtn.addEventListener('click', () => {
 
 // functionality for favorites star
 const star = document.querySelector("#star");
+const favDrop = document.querySelector('#fav-drop');
+const dropDivide = document.querySelector('#drop-divider');
+let favBand = [];
+let favEvent = [];
 
 star.addEventListener('click', function() {
     if (star.classList.contains('fa-regular')) {
@@ -174,15 +178,21 @@ star.addEventListener('click', function() {
         star.classList.add('fa-solid');
         for (let i = 0; i < bandArr.length; i++) {
             if (bandName === bandArr[i]) {
-                localStorage.setItem(`favorite-band-${bandArr[i]}`, bandArr[i]);    
+                localStorage.setItem(`favorite-band-${bandArr[i]}`, bandArr[i]);
+                favBand[i] = document.createElement('a');
+                favBand[i].className = 'dropdown-item'
+                favBand[i].textContent = bandName.toLowerCase();
+                favDrop.appendChild(favBand[i])
             }
         }      
     }else {
         star.classList.remove('fa-solid')
         star.classList.add('fa-regular')
-        for (let i = 0; i < bandArr.length; i++) {
+        for (let i = 0; i < localStorage.length; i++) {
             if (bandName === localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
                 localStorage.removeItem(`favorite-band-${bandArr[i]}`);
+                localBandEl[i].remove();
+                favBand[i].remove();
             }
         }
   }
@@ -197,3 +207,19 @@ function getStar() {
         }       
     } 
 }
+
+let localBand = [];
+let localBandEl = [];
+
+function getFavorite() {
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0,13) == 'favorite-band') {
+            localBand[i] = localStorage.getItem(localStorage.key(i))
+            localBandEl[i] = document.createElement('a');
+            localBandEl[i].textContent = localBand[i]
+            localBandEl[i].className = 'dropdown-item';
+            favDrop.appendChild(localBandEl[i]);
+        }        
+    } 
+}
+getFavorite();

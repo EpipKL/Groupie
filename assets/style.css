@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: black;
     font-family: 'Poppins';
@@ -33,6 +37,7 @@ cursor: pointer;
 #photo {
     height: 480px;
     width: 480px;
+    overflow: hidden;
 }
 
 /* discography modal styling */

@@ -13,17 +13,30 @@
 
   <body class="has-background-grey"> 
     
-  <!-- Fixed favorite button -- dropdown (needs dropdown menu)-->
-    <div class="navbar-end dropdown is-active">
-      <button class="button is-medium is-success is-rounded fixed m-2 dropdown-trigger" aria-haspopup="true" aria-controls="dropdown-menu2">
-        <span>Favorites</span>
-        <span class="icon is-small">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
+  
   <!-- Landing Section -->
     <section class="hero landing is-fullheight is-bold is-background is-clipped">
+      <!-- Fixed favorite button -- dropdown -->
+      <div class="navbar-end">
+        <div class="dropdown is-right fixed">
+          <div class="dropdown-trigger is-active">
+            <button id="fav-button" class="button is-success is-rounded m-2" aria-haspopup="true" aria-controls="dropdown-menu6">
+              <span>Favorites</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu mx-2" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <div id="fav-drop" class="dropdown-item">
+                <p>Favorite Artists</p>
+              </div>
+              <hr id="drop-divider" class="dropdown-divider">
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="hero-body">
         <div class="container has-text-centered">
           <!-- Logo -->

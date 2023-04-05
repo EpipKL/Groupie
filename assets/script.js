@@ -13,6 +13,10 @@ let bandArr = [];
 search.addEventListener('click', () => {
     bandName = input.value.toUpperCase();
     bandArr.push(bandName);
+    getAll();
+})
+
+function getAll() {
     clearFields();
     getStar();
     getBandTitle();
@@ -21,8 +25,7 @@ search.addEventListener('click', () => {
     getTicket();
     getBands();
     window.scrollTo(0, 1000)
-    console.log(bandName)
-})
+}
 
 // function for clearing fields between new searches
 function clearFields() {
@@ -190,32 +193,44 @@ star.addEventListener('click', function () {
         star.classList.remove('fa-regular');
         star.classList.add('fa-solid');
         for (let i = 0; i < bandArr.length; i++) {
-            if (bandName === bandArr[i]) {
+            if (bandName === bandArr[i] && bandName !== localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
                 localStorage.setItem(`favorite-band-${bandArr[i]}`, bandArr[i]);
                 favBand[i] = document.createElement('a');
                 favBand[i].className = 'dropdown-item'
                 favBand[i].textContent = bandName;
                 favDrop.appendChild(favBand[i])
-            }
-        }
+                favBand[i].addEventListener('click', () => {
+                if(bandArr[i] === favBand[i].textContent) {
+                    bandName = favBand[i].textContent;
+                    getAll();
+                }
+            })
+        }}      
     } else {
         star.classList.remove('fa-solid')
         star.classList.add('fa-regular')
         for (let i = 0; i < localStorage.length; i++) {
-            if (bandName === localStorage.getItem(localStorage.key(i))) {
-                localStorage.removeItem(localStorage.key(i));
-            } else if (localBandEl[i]) {
-                localBandEl[i].remove();
+            if (bandName === localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
+                localStorage.removeItem(`favorite-band-${bandArr[i]}`);
+            for (let j = 0; j < localBandEl.length; j++) {
+                if (localBandEl[j].texcontent !== localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
+                    localBandEl[j].remove();
+                }
             }
         }
         for (let i = 0; i < favBand.length; i++) {
-            if (favBand[i].textContent = bandArr[i]) {
+            if (favBand[i].textContent === bandName) {
                 favBand[i].remove();
             }else {
             }
         }
+        // for (let i = 0; i < localStorage.length; i++) {
+        //     if (!localStorage.getItem(localStorage.key(i))) {
+        //         localBandEl[i].remove();
+        //     }  
+        // }
     }
-})
+}})
 
 function getStar() {
     for (let i = 0; i < bandArr.length; i++) {
@@ -238,6 +253,10 @@ function getFavorite() {
             localBandEl[i].textContent = localBand[i]
             localBandEl[i].className = 'dropdown-item';
             favDrop.appendChild(localBandEl[i]);
+            localBandEl[i].addEventListener('click', () => {
+                bandName = localBandEl[i].textContent;
+                getAll();       
+            })
         } else {
         }
     }

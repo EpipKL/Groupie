@@ -152,7 +152,7 @@ function getBands() {
     })
 }
 
-// variables and open/close functions for discography modal
+// variables and open/close functions for discography modal -- also fav dropdown
 const discModal = document.querySelector('#disc-modal');
 const discBtn = document.querySelector('#disc-modal-btn');
 const discCloseBtn = document.querySelector('#disc-close');
@@ -165,12 +165,24 @@ discCloseBtn.addEventListener('click', () => {
     discModal.classList.remove('is-active');
 })  
 
+
+
 // functionality for favorites star
 const star = document.querySelector("#star");
+const dropdown = document.querySelector('#dropdown');
 const favDrop = document.querySelector('#fav-drop');
+const favDropBtn = document.querySelector('#fav-button');
 const dropDivide = document.querySelector('#drop-divider');
 let favBand = [];
 let favEvent = [];
+
+favDropBtn.addEventListener('click', () => {
+    if (dropdown.classList.contains('is-active')) {
+        dropdown.classList.remove('is-active');
+    }else {
+        dropdown.classList.add('is-active');
+    }
+})
 
 star.addEventListener('click', function() {
     if (star.classList.contains('fa-regular')) {

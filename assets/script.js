@@ -295,6 +295,7 @@ function getStar() {
 function getFavoriteBands() {
     for (let i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i).substring(0, 13) === 'favorite-band'){
+            console.log(favBand[i]);
             favBand[i] = localStorage.getItem(localStorage.key(i));
             favBandEl[i] = document.createElement('a');
             favBandEl[i].textContent = favBand[i];
@@ -324,7 +325,7 @@ function clearAbout(event) {
     }
 }
 
-clearAbout();
+// clearAbout();
 
 getFavoriteBands();
 getFavoriteEvents();

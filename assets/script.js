@@ -112,6 +112,9 @@ let tourVenue = [];
 let tourCity = [];
 let tourState = [];
 let tourEl = [];
+let favEvent = [];
+let favEventEl = [];
+let favEventElClose = [];
 
 function getTicket() {
     fetch('https://app.ticketmaster.com/discovery/v2/events.json?keyword=' + bandName + '&countryCode=US&sort=date,asc&apikey=' + ticketKey)
@@ -132,10 +135,57 @@ function getTicket() {
                 tourEl[i].textContent = tourCity[i] + ', ' + tourState[i] + " | " + tourVenue[i] + " | " + tourDate[i];
                 tour.appendChild(tourEl[i]);
                 tourEl[i].addEventListener('click', () => {
-                    localStorage.setItem(`favorite-event-${bandName + i}`, bandName + ' | ' + tourEl[i].textContent)
-                })
+                    if (!favEventEl[i]) {
+                        localStorage.setItem(`favorite-event-${bandName + i}`, bandName + ' | ' + tourEl[i].textContent);
+                        favEvent[i] = localStorage.getItem(`favorite-event-${bandName + i}`)
+                        favEventEl[i] = document.createElement('a');
+                        favEventElClose[i] = document.createElement('span');                                     
+                        favEventElClose[i].innerHTML = 'X';
+                        favEventElClose[i].setAttribute('id', 'fav-event-close');
+                        favEventEl[i].innerHTML = favEvent[i];
+                        favEventEl[i].className = 'dropdown-item';
+                        dropDivide.append(favEventEl[i], favEventElClose[i]);
+                        favEventElClose[i].addEventListener('click', (event) => {
+                            if (event.target = favEventElClose[i]) {
+                                localStorage.removeItem(`favorite-event-${bandName + i}`)
+                                favEventEl[i].remove();
+                                favEventElClose[i].remove();
+                                return;
+                            }
+                        })    
+                    }else {
+                        localStorage.removeItem(`favorite-event-${bandName + i}`)
+                        favEventEl[i].remove();
+                        favEventElClose[i].remove();
+                        return;
+                    }              
+                }) 
             }
         })
+}
+
+// load up favorite events on init
+function getFavoriteEvents() {
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0, 14) === 'favorite-event'){
+            favEvent[i] = localStorage.getItem(localStorage.key(i));
+            favEventEl[i] = document.createElement('a');
+            favEventElClose[i] = document.createElement('span');                                     
+            favEventElClose[i].innerHTML = 'X';
+            favEventElClose[i].setAttribute('id', 'fav-event-close');
+            favEventEl[i].innerHTML = favEvent[i];
+            favEventEl[i].className = 'dropdown-item';
+            dropDivide.append(favEventEl[i], favEventElClose[i]);
+            favEventElClose[i].addEventListener('click', (event) => {
+                if (event.target = favEventElClose[i]) {
+                    localStorage.removeItem(`favorite-event-${bandName + i}`)
+                    favEventEl[i].remove();
+                    favEventElClose[i].remove();
+                    return;
+                }
+            })    
+        }
+    }
 }
 
 // function to get bandsintown API -- band images
@@ -178,7 +228,8 @@ const favDrop = document.querySelector('#fav-drop');
 const favDropBtn = document.querySelector('#fav-button');
 const dropDivide = document.querySelector('#drop-divider');
 let favBand = [];
-let favEvent = [];
+let favBandEl = [];
+
 
 favDropBtn.addEventListener('click', () => {
     if (dropdown.classList.contains('is-active')) {
@@ -192,76 +243,68 @@ star.addEventListener('click', function () {
     if (star.classList.contains('fa-regular')) {
         star.classList.remove('fa-regular');
         star.classList.add('fa-solid');
-        for (let i = 0; i < bandArr.length; i++) {
-            if (bandName === bandArr[i] && bandName !== localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
-                localStorage.setItem(`favorite-band-${bandArr[i]}`, bandArr[i]);
-                favBand[i] = document.createElement('a');
-                favBand[i].className = 'dropdown-item'
-                favBand[i].textContent = bandName;
-                favDrop.appendChild(favBand[i])
-                favBand[i].addEventListener('click', () => {
-                if(bandArr[i] === favBand[i].textContent) {
-                    bandName = favBand[i].textContent;
-                    getAll();
-                }
-            })
-        }}      
+        localStorage.setItem(`favorite-band-${bandName}`, bandName);
+        makeFavItem();
+        clickFav();
     } else {
         star.classList.remove('fa-solid')
         star.classList.add('fa-regular')
         for (let i = 0; i < localStorage.length; i++) {
-            if (bandName === localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
-                localStorage.removeItem(`favorite-band-${bandArr[i]}`);
-            for (let j = 0; j < localBandEl.length; j++) {
-                if (localBandEl[j].texcontent !== localStorage.getItem(`favorite-band-${bandArr[i]}`)) {
-                    localBandEl[j].remove();
-                }
+            if (bandName === favBand[i]) {
+                localStorage.removeItem(localStorage.key(i));
+                favBandEl[i].remove();
             }
         }
-        for (let i = 0; i < favBand.length; i++) {
-            if (favBand[i].textContent === bandName) {
-                favBand[i].remove();
-            }else {
-            }
-        }
-        // for (let i = 0; i < localStorage.length; i++) {
-        //     if (!localStorage.getItem(localStorage.key(i))) {
-        //         localBandEl[i].remove();
-        //     }  
-        // }
     }
-}})
+})
 
-function getStar() {
-    for (let i = 0; i < bandArr.length; i++) {
-        if (localStorage.getItem(`favorite-band-${bandArr[i]}`) === bandName) {
-            star.className = 'fa-solid fa-star fa-2xl'
-        }else {
-            star.className = 'fa-regular fa-star fa-2xl'
-        }       
-    } 
+function makeFavItem() {
+    for (let i = 0; i < localStorage.length; i++) {
+       if (localStorage.getItem(localStorage.key(i)) === bandName) {
+        favBand[i] = localStorage.getItem(localStorage.key(i));
+        favBandEl[i] = document.createElement('a');
+        favBandEl[i].textContent = favBand[i];
+        favBandEl[i].className = 'dropdown-item has-text-centered';
+        favDrop.appendChild(favBandEl[i]);
+       } else {
+       }   
+    }
 }
 
-let localBand = [];
-let localBandEl = [];
+function clickFav() {
+    for (let i = 0; i < favBandEl.length; i++) {
+        favBandEl[i].addEventListener('click', () => {
+            bandName = favBand[i]
+            getAll();
+        })
+    }    
+}
 
-function getFavorite() {
+
+function getStar() {
+    for (let i = 0; i < favBand.length; i++) {
+        if (bandName === favBand[i]) {
+            star.className = 'fa-solid fa-star fa-2xl'
+            return;
+        }else {
+            star.className = 'fa-regular fa-star fa-2xl'
+        }
+    }
+}
+
+function getFavoriteBands() {
     for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i).substring(0, 13) == 'favorite-band') {
-            localBand[i] = localStorage.getItem(localStorage.key(i))
-            localBandEl[i] = document.createElement('a');
-            localBandEl[i].textContent = localBand[i]
-            localBandEl[i].className = 'dropdown-item';
-            favDrop.appendChild(localBandEl[i]);
-            localBandEl[i].addEventListener('click', () => {
-                bandName = localBandEl[i].textContent;
-                getAll();       
-            })
+        if (localStorage.key(i).substring(0, 13) === 'favorite-band'){
+            favBand[i] = localStorage.getItem(localStorage.key(i));
+            favBandEl[i] = document.createElement('a');
+            favBandEl[i].textContent = favBand[i];
+            favBandEl[i].className = 'dropdown-item has-text-centered';
+            favDrop.appendChild(favBandEl[i]);
         } else {
         }
     }
+    clickFav();
 }
-getFavorite();
 
 const aboutModal = document.querySelector('#about-info');
 const aboutBtn = document.querySelector('#about-btn');
@@ -282,3 +325,6 @@ function clearAbout(event) {
 }
 
 clearAbout();
+
+getFavoriteBands();
+getFavoriteEvents();

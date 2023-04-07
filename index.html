@@ -73,9 +73,29 @@
               </p>
             </div>
           </div>
-          <button class="button is-medium is-info has-text-white has-background-grey is-rounded">
-              Contact us
-          </button>
+          <button id="contact-btn" class="button is-medium is-info has-text-white has-background-grey is-rounded">Contact Us</button>
+          <div id="contact-modal" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Contact Us!</h2>
+          <form id="contact-form" method="post">
+          <label for="name">Name:</label>
+          <br>
+          <input type="text" id="name" name="name" required>
+          <br>
+          <label for="email">Email:</label>
+          <br>
+          <input type="email" id="email" name="email" required>
+          <br>
+          <label for="message">Message:</label>
+          <br>
+          <textarea id="message" name="message" required></textarea>
+          <br>
+          <button class="submit" type="submit">Submit</button>
+         </form>
+        </div>
+      </div>
+    </div>
       </div>
   </section>
   <!-- Ending of Landing Section -->

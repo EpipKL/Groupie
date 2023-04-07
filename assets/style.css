@@ -78,7 +78,7 @@ cursor: pointer;
 
 #about-info {
     width: 75%;
-    height: 75%;
+    height: 85%;
     margin: auto;
     padding: 50px 20px 20px 20px;
     border-radius: 20px;
@@ -152,7 +152,7 @@ cursor: pointer;
 }
 
 /* contact form styling */
-.modal {
+#contact-modal {
     margin: 0;
     padding: 0;
     color: rgb(0, 231, 116);
@@ -164,7 +164,8 @@ cursor: pointer;
     align-items: center;
     border-radius: 10px;
   }
-   .modal-content {
+
+   #contact-content {
     background: linear-gradient(to bottom, #333 0%, #000 100%); 
     opacity: 85%;
     margin: 20% auto;

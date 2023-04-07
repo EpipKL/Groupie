@@ -2,19 +2,20 @@
 
 ## Description
 
-Groupie is a web app that is  a great way for music fans to keep up with their favorite artists.
+Groupie is a web app that is  a great way for music fans to find concert events for their favorite artists.
+Also to learn more about them. With a simple search Groupie shows you concert dates, discography, and a picture of the artist. Not only that it keeps tracks of your favorite artists.  
 
 Groupe gives the following information:
 - A picture of the Artist 
-- Artsit Bio
-- Discoogrpahy 
+- Artist Bio
+- Discography 
 - Upcoming tour dates
 
 Tools used to build Groupie
 - HTML
 - CSS
 - JavaScript 
-- Bulma (Css Library )
+- Bulma (CSS Library )
 - APIs ( Discogs and Bandsintown)
 
 ## User Story
@@ -25,25 +26,28 @@ SO that I know event and band information
 
 ## Usage
 
-Below is are screenshots that show useage of how Groupie works Provide instructions and examples for use. Include screenshots as needed.
+Below is are screenshots that show usage of how Groupie works Provide instructions and examples for use. Include screenshots as needed.
 
 
 
-
+ ### Landing page 
    ![Screenshot of landing page.](./assets/images/Screenshot%202023-04-04%20192749.png)
-    ![Screenshot of Dead Mau5.](./assets/images/Screenshot%202023-04-04%20194038.png)
-     ![Screenshot of Kali Uchis.](./assets/images/Screenshot%202023-04-04%20194133.png)
-      ![Screenshot of George Strait.](./assets/images/Screenshot%202023-04-04%20194225.png)
+ - ### Search Results for a few artists
+    ![Screenshot of Dead Mau5.](./assets/images/DeadMau5.png)
+     ![Screenshot of Kali Uchis.](./assets/images/KaliUchis.png)
+      ![Screenshot of George Strait.](./assets/images/GeorgeStrait.png)
+ ### Favorite Star and section 
+ ![Screenshot of Dead Mau5.](./assets/images/FavStarClick.png)
+  ![Screenshot of Dead Mau5.](./assets/images/FavList.png)
+
 
 ## Credits
 
 Project collaborators:
-- Aaron Tanner
+- Aaron Tanner 
 - Kali Lott
-- Rosalinda Quezada
+- Kyle Lucas 
 - Daniel De Luna 
+- Rosalinda Quezada
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 

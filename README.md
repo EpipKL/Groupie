@@ -4,16 +4,15 @@
 
 ## Description
 
-Groupie is a web app that is a great way for music fans to find concert events for their favorite artists.
-Also to learn more about them. With a simple search Groupie shows you concert dates, discography, and a picture of the artist. Not only that it keeps tracks of your favorite artists.  
+Groupie is a web app designed by music fans, for music fans. Keep up with your favorite artists and bands with our search engine, which lists the most up-to-date information, including upcoming shows, discography, and a full biography all at the click of a button. Save your favorites by clicking on the star.
 
-### Groupe gives the following information:
+## Groupe gives the following information:
 - A picture of the Artist 
 - Artist Bio
 - Discography 
 - Upcoming tour dates
 
-### Tools used to build Groupie
+## Tools used to build Groupie
 
 
 

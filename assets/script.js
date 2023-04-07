@@ -178,10 +178,9 @@ function getFavoriteEvents() {
             dropDivide.append(favEventEl[i], favEventElClose[i]);
             favEventElClose[i].addEventListener('click', (event) => {
                 if (event.target = favEventElClose[i]) {
-                    localStorage.removeItem(`favorite-event-${bandName + i}`)
+                    localStorage.removeItem(localStorage.key(i))
                     favEventEl[i].remove();
                     favEventElClose[i].remove();
-                    return;
                 }
             })    
         }

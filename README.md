@@ -1,21 +1,24 @@
-<img src="./assets/images/Groupie-white.png">
-# Groupie ( DU-Project-1 ) 
+# Groupie ( DU-Project-1 )
+ <img src="./assets/images/Groupie-white.png">
+
 
 ## Description
 
 Groupie is a web app that is a great way for music fans to find concert events for their favorite artists.
 Also to learn more about them. With a simple search Groupie shows you concert dates, discography, and a picture of the artist. Not only that it keeps tracks of your favorite artists.  
 
-Groupe gives the following information:
+### Groupe gives the following information:
 - A picture of the Artist 
 - Artist Bio
 - Discography 
 - Upcoming tour dates
 
-Tools used to build Groupie
-- HTML
-- CSS
-- JavaScript 
+### Tools used to build Groupie
+
+
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,git,github&perline=1)](https://skillicons.dev)
+
 - Bulma (CSS Library )
 - APIs ( Discogs and Bandsintown)
 

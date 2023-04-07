@@ -1,5 +1,5 @@
 # Groupie ( DU-Project-1 )
- <img src="./assets/images/Groupie-white.png">
+ <img src="./assets/images/Groupie-greengrey.jpg">
 
 
 ## Description
@@ -36,9 +36,9 @@ Below is are screenshots that show usage of how Groupie works Provide instructio
  ### Landing page 
    ![Screenshot of landing page.](./assets/images/Screenshot%202023-04-04%20192749.png)
  - ### Search Results for a few artists
-    ![Screenshot of Dead Mau5.](./assets/images/DeadMau5.png)
-     ![Screenshot of Kali Uchis.](./assets/images/KaliUchis.png)
-      ![Screenshot of George Strait.](./assets/images/GeorgeStrait.png)
+      ![Sreenshot of DeadMau5.](./assets/images/Screenshot%202023-04-04%20194038.png)
+      ![Screenshot of Kali Uchis.](./assets/images/Screenshot%202023-04-04%20194133.png)
+      ![Screenshot of George Strait.](./assets/images/Screenshot%202023-04-04%20194225.png)
  ### Favorite Star and section 
  ![Screenshot of Dead Mau5.](./assets/images/FavStarClick.png)
   ![Screenshot of Dead Mau5.](./assets/images/FavList.png)

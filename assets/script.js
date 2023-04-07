@@ -262,3 +262,23 @@ function getFavorite() {
     }
 }
 getFavorite();
+
+const aboutModal = document.querySelector('#about-info');
+const aboutBtn = document.querySelector('#about-btn');
+const aboutClose = document.querySelector('#about-close');
+
+aboutBtn.addEventListener ('click', () => {
+    aboutModal.classList.add('is-active');
+});
+
+aboutClose.addEventListener ('click', () => {
+    aboutModal.classList.remove('is-active');
+});
+
+function clearAbout(event) {
+    if (event.target == aboutModal) {
+        aboutModal.classList.remove('is-active');
+    }
+}
+
+clearAbout();

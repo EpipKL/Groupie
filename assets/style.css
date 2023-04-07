@@ -72,6 +72,31 @@ cursor: pointer;
     background-position: center center;
 }
 
+#about-info {
+    width: 75%;
+    height: 75%;
+    margin: auto;
+    padding: 50px 20px 20px 20px;
+    border-radius: 20px;
+}
+
+#about-content {
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    overflow: scroll;
+}
+
+#about-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+  
+#collab {
+    font-size: 14pt;
+}
+
 .artist-title {
     display: flex;
 }
@@ -143,11 +168,15 @@ cursor: pointer;
         margin: 0;
     }
   }
-  
+
   @media screen and (max-width: 768px) {
     .logo {
         width: 480px;
         height: 270px;
+    }
+    #about-info {
+        width: auto;
+        height: auto;
     }
   }
   

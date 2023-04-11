@@ -59,27 +59,52 @@ let discTitle = [];
 let discTitleEl = [];
 
 function getDiscogs() {
-    fetch('https://api.discogs.com/database/search?artist=' + bandName + '&type=release&key=' + apiKey + '&secret=' + apiSecret)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            for (let i = 0; i < data.results.length; i++) {
-                if (data.results[i].country === 'US') {
-                    discImage[i] = data.results[i].thumb;
-                    discTitle[i] = data.results[i].title
-                    discImageEl[i] = document.createElement('img');
-                    discTitleEl[i] = document.createElement('a');
-                    discImageEl[i].setAttribute('src', discImage[i]);
-                    discTitleEl[i].textContent = discTitle[i];
-                    discography.appendChild(discImageEl[i]);
-                    discography.appendChild(discTitleEl[i]);
-                } else {
-                }
+    fetch(`https://api.discogs.com/database/search?type=artist&q=${bandName}&key=${apiKey}&secret=${apiSecret}`)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data);
+        const artistId = data.results[0].id;
+        console.log(`Artist ID: ${artistId}`);
+        return fetch(`https://api.discogs.com/database/search?artist=${encodeURIComponent(bandName)}&type=release&format=album&sort=year&sort_order=asc&key=${apiKey}&secret=${apiSecret}`);
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log(data);
+        let addedTitles = [];
+        for (let i = 0; i < data.results.length; i++) {
+          if (data.results[i].country === 'US') {
+            const title = data.results[i].title;
+            if (!addedTitles.includes(title)) {
+              addedTitles.push(title);
+              discImage[i] = data.results[i].thumb;
+              discTitle[i] = title;
+              discImageEl[i] = document.createElement('img');
+              discTitleEl[i] = document.createElement('a');
+              discImageEl[i].setAttribute('src', discImage[i]);
+              discTitleEl[i].textContent = discTitle[i];
+              
+              // Add Bulma classes to the created elements
+              discImageEl[i].classList.add('column', 'is-one-quarter', 'image', 'is-rounded');
+              discTitleEl[i].classList.add('column', 'is-three-quarters', 'has-text-weight-bold');
+              
+              const divEl = document.createElement('div');
+              divEl.classList.add('columns', 'is-mobile', 'is-vcentered', 'fixed-width');
+              divEl.style.height = "auto";
+              divEl.appendChild(discImageEl[i]);
+              divEl.appendChild(discTitleEl[i]);
+              discography.appendChild(divEl);
             }
-        })
-}
+          }
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 
 // function to call the lastFM API to get bio
 const lastKey = 'f54a71e4cffac64ddae0c640e1c20b04'

@@ -122,16 +122,24 @@
             Discography
           </button>
           <div id="bio"></div>
-          <div id="disc-modal" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <h2 id="discography">Discography</h2>
-            </div>
-            <button id="disc-close" class="modal-close is-large" aria-label="close"></button>
-          </div>   
         </div>
       </div>
     </section>
+
+    <div id="disc-modal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Discography</p>
+          <button id="disc-close" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <h2 id="discography"></h2>
+        </section>
+      </div>
+    </div>
+
+
   <script src="https://kit.fontawesome.com/ab3504821e.js" crossorigin="anonymous"></script>
   <script src="./assets/script.js"></script>
   </body>
